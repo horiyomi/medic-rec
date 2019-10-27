@@ -58,6 +58,13 @@ const SignupSchema = Yup.object().shape({
 });
 
 class Login extends Component {
+    state = {
+        loading: false
+    }
+    handleLogin = () => {
+        this.setState({loading: true})
+        setTimeout((this.setState({loading: false})), 300)
+    }
     render() {
         const { classes, dispatch } = this.props
         return (
@@ -82,8 +89,9 @@ class Login extends Component {
                                     label="Password"
                                     inputProps={{ 'aria-label': 'bare' }}
                                     className={classes.input}
+                                    type="password"
                                 />
-                                <Button onClick={() => dispatch({ type: REQUEST_LOGIN })} variant="contained" color="primary">Login</Button>
+                                <Button component={Link} to="/home/dashboard" variant="contained" color="primary">Login</Button>
                             </div>
                         </Paper>
                     </Grid>
