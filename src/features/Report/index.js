@@ -17,7 +17,7 @@ class Report extends Component {
         return (
             <div className={classes.container}>
                 <Typography>Report</Typography>
-                <Data />
+                {/* <Data /> */}
             </div>
         )
     }
