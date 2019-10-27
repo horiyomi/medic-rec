@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import * as Yup from 'yup';
 import { Grid, TextField, Paper, Button, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import { REQUEST_LOGIN } from '../../../constants';
 
 const style = theme => ({
     container: {
@@ -62,7 +63,7 @@ class Login extends Component {
         return (
             <div className={classes.container}>
                 <Grid container>
-                    <Grid xs={12}>
+                    <Grid item xs={12}>
                         <Paper className={classes.paper}>
                             <div className={classes.contentWrapper}>
                                 <Typography className={classes.textTitle}>Sign In</Typography>
@@ -82,7 +83,7 @@ class Login extends Component {
                                     inputProps={{ 'aria-label': 'bare' }}
                                     className={classes.input}
                                 />
-                                <Button component={Link} to="/dashboard" variant="contained" color="primary">Login</Button>
+                                <Button onClick={() => dispatch({ type: REQUEST_LOGIN })} variant="contained" color="primary">Login</Button>
                             </div>
                         </Paper>
                     </Grid>
